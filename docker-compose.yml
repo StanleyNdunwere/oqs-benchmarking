@@ -1,0 +1,66 @@
+version: '3.7'
+
+services:
+  pqc-keys-generator:
+    build:
+      context: ./oqs-demos/openssl3  # This is the folder where the Dockerfile is located
+      dockerfile: Dockerfile.keys    
+    container_name: pqc-keys-generator
+    networks:
+      - default
+    command: sh -c "/usr/local/bin/generate-keys.sh & crond -f -l 2 & tail -f /dev/null"
+
+  pqc-server:
+    build:
+      context: ./oqs-demos/openssl3  # This is the folder where the Dockerfile is located
+      dockerfile: Dockerfile.server    
+    container_name: pqc-server
+    networks:
+      - default
+    ports:
+      - "4433:4433"
+      - "4443:4443"
+    command: sh -c "sleep 15 & /usr/local/bin/update-keys.sh & /opt/openssl/bin/serverstart.sh & crond -f -l 2 & tail -f /dev/null"
+    depends_on:
+      - pqc-keys-generator
+      - vault
+    volumes:
+      - ./test_logs:/opt/testfiles/test_logs/
+
+  pqc-client:
+    build:
+      context: ./oqs-demos/openssl3
+      dockerfile: Dockerfile.client   
+    container_name: pqc-client
+    networks:
+      - default
+    command: sh -c "sleep 10 & tail -f /dev/null"
+    depends_on:
+      - pqc-server
+      - pqc-keys-generator
+      - vault
+
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault
+    ports:
+      - "8200:8200"  # Vault UI (optional) and API
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: root
+      VAULT_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"  # Allow all IP addresses
+      VAULT_DEV_SERVER_MODE: "true"  # Enable dev mode (not recommended for production)
+      VAULT_ADDR: "http://127.0.0.1:8200"
+    cap_add:
+      - IPC_LOCK  # Prevent Vault from being swapped to disk (important for security)
+    restart: unless-stopped
+    command: >
+      sh -c "
+        vault server -dev -dev-listen-address=0.0.0.0:8200 & 
+        sleep 15 &&
+        vault secrets enable -path=ssl kv-v2 && 
+        tail -f /dev/null"
+    networks:
+      - default
+networks:
+  default:
+    driver: bridge  # Default network mode
