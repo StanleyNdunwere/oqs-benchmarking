@@ -45,7 +45,7 @@ curl --header "X-Vault-Token: $VAULT_TOKEN" \
 
 # Generate a self-signed certificate from the CSR using standard rsa
 set -x && mkdir -p /opt/test
-openssl req -new -newkey rsa:2048 -keyout /opt/test/server_rsa.key -out /opt/test/server_rsa.csr -nodes -subj "/CN=localhost" &&
+openssl req -new -newkey rsa:4096 -keyout /opt/test/server_rsa.key -out /opt/test/server_rsa.csr -nodes -subj "/CN=localhost" &&
 openssl x509 -req -in /opt/test/server_rsa.csr -out /opt/test/server_rsa.crt -signkey /opt/test/server_rsa.key -days 30
 
 KEY_PATH_RSA="/opt/test/server_rsa.key"

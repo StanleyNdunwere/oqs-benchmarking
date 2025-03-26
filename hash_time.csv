@@ -1,0 +1,13 @@
+Algorithm,File Name,Time Taken (seconds)
+Dilithium3,test_text_3kb.txt,0.006
+Dilithium3,/test_1M.bin,0.010
+Dilithium3,/test_50M.bin,0.104
+RSA 2048,test_text_3kb.txt,0.008
+RSA 2048,test_1M.bin,0.010
+RSA 2048,test_50M.bin,0.133
+Dilithium5,test_text_3KB.txt,0.005
+Dilithium5,test_1M.bin,0.010
+Dilithium5,test_50M.bin,0.101
+RSA 4096,test_text_3KB.txt,0.005
+RSA 4096,test_1M.bin,0.009
+RSA 4096,test_50M.bin,0.101

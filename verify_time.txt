@@ -1,0 +1,40 @@
+Dilithium3
+File name: test_text_3kb.txt
+time_taken:	0.010
+
+File name: test_1M.bin
+time_taken:	0.013
+
+File name: test_50M.bin
+time_taken:	0.105
+
+RSA 2048
+File name: test_text_3kb.txt
+time_taken:	0.008
+
+File name: test_1M.bin
+time_taken:	0.014
+
+File name: test_50M.bin
+time_taken:	0.115
+
+Dilithium5 
+File name: test_text_3KB.txt
+time_taken: 0.009
+
+File name: test_1M.bin
+time_taken: 0.013
+
+File name: test_50M.bin
+time_taken: 0.107
+
+RSA 4096
+File name: test_text_3KB.txt
+time_taken: 0.008
+
+File name: test_1M.bin
+time_taken: 0.012
+
+File name: test_50M.bin
+time_taken: 0.108
+

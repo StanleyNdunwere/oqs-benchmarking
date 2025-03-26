@@ -1,0 +1,170 @@
+{
+  "RSA_2048": [
+    {
+      "Time_seconds": 0.0557965,
+      "File_size_bytes": 1704
+    },
+    {
+      "Time_seconds": 0.0729632,
+      "File_size_bytes": 1704
+    },
+    {
+      "Time_seconds": 0.0973423,
+      "File_size_bytes": 1704
+    },
+    {
+      "Time_seconds": 0.125325,
+      "File_size_bytes": 1704
+    },
+    {
+      "Time_seconds": 0.1042175,
+      "File_size_bytes": 1708
+    },
+    {
+      "Time_seconds": 0.1347344,
+      "File_size_bytes": 1704
+    },
+    {
+      "Time_seconds": 0.0777897,
+      "File_size_bytes": 1704
+    },
+    {
+      "Time_seconds": 0.0624023,
+      "File_size_bytes": 1704
+    },
+    {
+      "Time_seconds": 0.0682288,
+      "File_size_bytes": 1704
+    },
+    {
+      "Time_seconds": 0.1265118,
+      "File_size_bytes": 1704
+    }
+  ],
+  "RSA_4096": [
+    {
+      "Time_seconds": 1.9400349,
+      "File_size_bytes": 3272
+    },
+    {
+      "Time_seconds": 0.2644884,
+      "File_size_bytes": 3272
+    },
+    {
+      "Time_seconds": 1.418235,
+      "File_size_bytes": 3272
+    },
+    {
+      "Time_seconds": 0.346591,
+      "File_size_bytes": 3272
+    },
+    {
+      "Time_seconds": 0.6093669,
+      "File_size_bytes": 3272
+    },
+    {
+      "Time_seconds": 0.9599242,
+      "File_size_bytes": 3272
+    },
+    {
+      "Time_seconds": 0.2306034,
+      "File_size_bytes": 3268
+    },
+    {
+      "Time_seconds": 1.7494228,
+      "File_size_bytes": 3268
+    },
+    {
+      "Time_seconds": 0.548332,
+      "File_size_bytes": 3268
+    },
+    {
+      "Time_seconds": 0.4921355,
+      "File_size_bytes": 3272
+    }
+  ],
+  "dilithium3": [
+    {
+      "Time_seconds": 0.0372288,
+      "File_size_bytes": 8155
+    },
+    {
+      "Time_seconds": 0.032103,
+      "File_size_bytes": 8155
+    },
+    {
+      "Time_seconds": 0.0323777,
+      "File_size_bytes": 8155
+    },
+    {
+      "Time_seconds": 0.02918,
+      "File_size_bytes": 8155
+    },
+    {
+      "Time_seconds": 0.0358218,
+      "File_size_bytes": 8155
+    },
+    {
+      "Time_seconds": 0.0274845,
+      "File_size_bytes": 8155
+    },
+    {
+      "Time_seconds": 0.0341569,
+      "File_size_bytes": 8155
+    },
+    {
+      "Time_seconds": 0.0352933,
+      "File_size_bytes": 8155
+    },
+    {
+      "Time_seconds": 0.0278118,
+      "File_size_bytes": 8155
+    },
+    {
+      "Time_seconds": 0.0304466,
+      "File_size_bytes": 8155
+    }
+  ],
+  "dilithium5": [
+    {
+      "Time_seconds": 0.0305833,
+      "File_size_bytes": 10194
+    },
+    {
+      "Time_seconds": 0.028929,
+      "File_size_bytes": 10194
+    },
+    {
+      "Time_seconds": 0.0303837,
+      "File_size_bytes": 10194
+    },
+    {
+      "Time_seconds": 0.0279095,
+      "File_size_bytes": 10194
+    },
+    {
+      "Time_seconds": 0.0354878,
+      "File_size_bytes": 10194
+    },
+    {
+      "Time_seconds": 0.0295763,
+      "File_size_bytes": 10194
+    },
+    {
+      "Time_seconds": 0.0293333,
+      "File_size_bytes": 10194
+    },
+    {
+      "Time_seconds": 0.0299599,
+      "File_size_bytes": 10194
+    },
+    {
+      "Time_seconds": 0.0287764,
+      "File_size_bytes": 10194
+    },
+    {
+      "Time_seconds": 0.0296928,
+      "File_size_bytes": 10194
+    }
+  ]
+}

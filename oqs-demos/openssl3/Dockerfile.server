@@ -117,6 +117,7 @@ RUN set -x && mkdir -p /opt/test
 COPY serverstart.sh ${INSTALLDIR_OPENSSL}/bin
 RUN apk add curl
 RUN apk add jq
+RUN apk add --no-cache python3 py3-pip
 # cron
 RUN apk add --no-cache bash busybox-suid
 RUN mkdir -p /var/spool/cron/crontabs

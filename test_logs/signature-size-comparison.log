@@ -1,0 +1,21 @@
+File: /opt/testfiles/test_text.txt
+RSA signature size: 512 bytes
+-----------------------
+File: /opt/testfiles/test_text.txt
+RSA signature size: 512 bytes
+-----------------------
+File: /opt/testfiles/test_text.txt
+RSA signature size: 512 bytes
+-----------------------
+File: /opt/testfiles/test_text.txt
+RSA signature size: 512 bytes
+-----------------------
+File: /opt/testfiles/test_text.txt
+RSA signature size: 512 bytes
+-----------------------
+File: /opt/testfiles/test_1M.bin
+RSA signature size: 512 bytes
+-----------------------
+File: /opt/testfiles/test_50M.bin
+RSA signature size: 512 bytes
+-----------------------

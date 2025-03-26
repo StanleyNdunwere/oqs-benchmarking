@@ -1,0 +1,215 @@
+Starting key generation benchmark tests...
+===============================================
+OQS provider is available.
+Running RSA key generation tests...
+Testing RSA-2048 key generation (10 iterations)...
+  Test #1 for RSA-2048
+    Time: .0557965 seconds
+    Start Time: 1742844945.845276
+    End Time: 1742844945.9010725 seconds
+    File Size: 1704 bytes
+  Test #2 for RSA-2048
+    Time: .0729632 seconds
+    Start Time: 1742844945.9402635
+    End Time: 1742844946.0132267 seconds
+    File Size: 1704 bytes
+  Test #3 for RSA-2048
+    Time: .0973423 seconds
+    Start Time: 1742844946.0527663
+    End Time: 1742844946.1501086 seconds
+    File Size: 1704 bytes
+  Test #4 for RSA-2048
+    Time: .125325 seconds
+    Start Time: 1742844946.208019
+    End Time: 1742844946.333344 seconds
+    File Size: 1704 bytes
+  Test #5 for RSA-2048
+    Time: .1042175 seconds
+    Start Time: 1742844946.393488
+    End Time: 1742844946.4977055 seconds
+    File Size: 1708 bytes
+  Test #6 for RSA-2048
+    Time: .1347344 seconds
+    Start Time: 1742844946.5419614
+    End Time: 1742844946.6766958 seconds
+    File Size: 1704 bytes
+  Test #7 for RSA-2048
+    Time: .0777897 seconds
+    Start Time: 1742844946.7222474
+    End Time: 1742844946.8000371 seconds
+    File Size: 1704 bytes
+  Test #8 for RSA-2048
+    Time: .0624023 seconds
+    Start Time: 1742844946.8409345
+    End Time: 1742844946.9033368 seconds
+    File Size: 1704 bytes
+  Test #9 for RSA-2048
+    Time: .0682288 seconds
+    Start Time: 1742844946.94914
+    End Time: 1742844947.0173688 seconds
+    File Size: 1704 bytes
+  Test #10 for RSA-2048
+    Time: .1265118 seconds
+    Start Time: 1742844947.05846
+    End Time: 1742844947.1849718 seconds
+    File Size: 1704 bytes
+-----------------------------------------------
+Testing RSA-4096 key generation (10 iterations)...
+  Test #1 for RSA-4096
+    Time: 1.9400349 seconds
+    Start Time: 1742844947.2441764
+    End Time: 1742844949.1842113 seconds
+    File Size: 3272 bytes
+  Test #2 for RSA-4096
+    Time: .2644884 seconds
+    Start Time: 1742844949.2321277
+    End Time: 1742844949.4966161 seconds
+    File Size: 3272 bytes
+  Test #3 for RSA-4096
+    Time: 1.418235 seconds
+    Start Time: 1742844949.541337
+    End Time: 1742844950.959572 seconds
+    File Size: 3272 bytes
+  Test #4 for RSA-4096
+    Time: .3465910 seconds
+    Start Time: 1742844951.0067625
+    End Time: 1742844951.3533535 seconds
+    File Size: 3272 bytes
+  Test #5 for RSA-4096
+    Time: .6093669 seconds
+    Start Time: 1742844951.4441628
+    End Time: 1742844952.0535297 seconds
+    File Size: 3272 bytes
+  Test #6 for RSA-4096
+    Time: .9599242 seconds
+    Start Time: 1742844952.0950496
+    End Time: 1742844953.0549738 seconds
+    File Size: 3272 bytes
+  Test #7 for RSA-4096
+    Time: .2306034 seconds
+    Start Time: 1742844953.1029227
+    End Time: 1742844953.3335261 seconds
+    File Size: 3268 bytes
+  Test #8 for RSA-4096
+    Time: 1.7494228 seconds
+    Start Time: 1742844953.376234
+    End Time: 1742844955.1256568 seconds
+    File Size: 3268 bytes
+  Test #9 for RSA-4096
+    Time: .548332 seconds
+    Start Time: 1742844955.166465
+    End Time: 1742844955.714797 seconds
+    File Size: 3268 bytes
+  Test #10 for RSA-4096
+    Time: .4921355 seconds
+    Start Time: 1742844955.7648628
+    End Time: 1742844956.2569983 seconds
+    File Size: 3272 bytes
+-----------------------------------------------
+Running Dilithium key generation tests...
+Testing dilithium3 key generation (10 iterations)...
+  Test #1 for dilithium3
+    Time: .0372288 seconds
+    Start Time: 1742844956.325397
+    End Time: 1742844956.3626258 seconds
+    File Size: 8155 bytes
+  Test #2 for dilithium3
+    Time: .0321030 seconds
+    Start Time: 1742844956.4039772
+    End Time: 1742844956.4360802 seconds
+    File Size: 8155 bytes
+  Test #3 for dilithium3
+    Time: .0323777 seconds
+    Start Time: 1742844956.4837308
+    End Time: 1742844956.5161085 seconds
+    File Size: 8155 bytes
+  Test #4 for dilithium3
+    Time: .0291800 seconds
+    Start Time: 1742844956.5668302
+    End Time: 1742844956.5960102 seconds
+    File Size: 8155 bytes
+  Test #5 for dilithium3
+    Time: .0358218 seconds
+    Start Time: 1742844956.641455
+    End Time: 1742844956.6772768 seconds
+    File Size: 8155 bytes
+  Test #6 for dilithium3
+    Time: .0274845 seconds
+    Start Time: 1742844956.7269208
+    End Time: 1742844956.7544053 seconds
+    File Size: 8155 bytes
+  Test #7 for dilithium3
+    Time: .0341569 seconds
+    Start Time: 1742844956.79622
+    End Time: 1742844956.8303769 seconds
+    File Size: 8155 bytes
+  Test #8 for dilithium3
+    Time: .0352933 seconds
+    Start Time: 1742844956.854224
+    End Time: 1742844956.8895173 seconds
+    File Size: 8155 bytes
+  Test #9 for dilithium3
+    Time: .0278118 seconds
+    Start Time: 1742844956.9383378
+    End Time: 1742844956.9661496 seconds
+    File Size: 8155 bytes
+  Test #10 for dilithium3
+    Time: .0304466 seconds
+    Start Time: 1742844957.0063384
+    End Time: 1742844957.036785 seconds
+    File Size: 8155 bytes
+-----------------------------------------------
+Testing dilithium5 key generation (10 iterations)...
+  Test #1 for dilithium5
+    Time: .0305833 seconds
+    Start Time: 1742844957.1059387
+    End Time: 1742844957.136522 seconds
+    File Size: 10194 bytes
+  Test #2 for dilithium5
+    Time: .0289290 seconds
+    Start Time: 1742844957.1773975
+    End Time: 1742844957.2063265 seconds
+    File Size: 10194 bytes
+  Test #3 for dilithium5
+    Time: .0303837 seconds
+    Start Time: 1742844957.2474303
+    End Time: 1742844957.277814 seconds
+    File Size: 10194 bytes
+  Test #4 for dilithium5
+    Time: .0279095 seconds
+    Start Time: 1742844957.3186417
+    End Time: 1742844957.3465512 seconds
+    File Size: 10194 bytes
+  Test #5 for dilithium5
+    Time: .0354878 seconds
+    Start Time: 1742844957.389027
+    End Time: 1742844957.4245148 seconds
+    File Size: 10194 bytes
+  Test #6 for dilithium5
+    Time: .0295763 seconds
+    Start Time: 1742844957.4700174
+    End Time: 1742844957.4995937 seconds
+    File Size: 10194 bytes
+  Test #7 for dilithium5
+    Time: .0293333 seconds
+    Start Time: 1742844957.5400193
+    End Time: 1742844957.5693526 seconds
+    File Size: 10194 bytes
+  Test #8 for dilithium5
+    Time: .0299599 seconds
+    Start Time: 1742844957.6120765
+    End Time: 1742844957.6420364 seconds
+    File Size: 10194 bytes
+  Test #9 for dilithium5
+    Time: .0287764 seconds
+    Start Time: 1742844957.6869824
+    End Time: 1742844957.7157588 seconds
+    File Size: 10194 bytes
+  Test #10 for dilithium5
+    Time: .0355447 seconds
+    Start Time: 1742844957.7624793
+    End Time: 1742844957.798024 seconds
+    File Size: 10194 bytes
+-----------------------------------------------
+Extracting averages for comparison...
+Benchmark complete. Results saved to /opt/testfiles/test_logs/key_generation_test/key_generation_summary.txt

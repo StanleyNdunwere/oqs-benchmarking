@@ -58,6 +58,9 @@ services:
         vault server -dev -dev-listen-address=0.0.0.0:8200 & 
         sleep 15 &&
         vault secrets enable -path=ssl kv-v2 && 
+        # vault secrets enable transit &&
+        # vault write -f transit/keys/my-key type="chacha20-poly1305" &&
+        # vault write transit/keys/quantum-safe-key type="chacha20-poly1305" exportable=true &&
         tail -f /dev/null"
     networks:
       - default

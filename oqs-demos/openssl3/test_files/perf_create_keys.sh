@@ -1,15 +1,15 @@
 #!/bin/bash
 cd /opt/openssl/bin
 # Configuration
-OUTPUT_DIR="/opt/testfiles/key_generation_test"
+OUTPUT_DIR="/opt/testfiles/test_logs/key_generation_test"
 LOG_FILE="$OUTPUT_DIR/key_generation_times.log"
 SUMMARY_FILE="$OUTPUT_DIR/key_generation_summary.txt"
 
 # RSA key sizes to test
-RSA_KEY_SIZES=(2048 3072 4096)
+RSA_KEY_SIZES=(2048 4096)
 
 # Dilithium variants to test (if available in your OQS installation)
-DILITHIUM_VARIANTS=("dilithium2" "dilithium3" "dilithium5")
+DILITHIUM_VARIANTS=("dilithium3" "dilithium5")
 
 # Number of tests to run for each key type/size
 NUM_TESTS=10
@@ -33,11 +33,15 @@ test_rsa_key_generation() {
     
     for i in $(seq 1 $NUM_TESTS); do
         echo "  Test #$i for RSA-$key_size" | tee -a "$LOG_FILE"
-        start_time=$(date +%s.%N)
+        start_time=$(python3 -c "import time; print(time.time())")
         openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:$key_size -out "$OUTPUT_DIR/rsa_${key_size}_${i}.key" 2>/dev/null
-        end_time=$(date +%s.%N)
+        end_time=$(python3 -c "import time; print(time.time())")
+        file_size=$(stat -c %s "$OUTPUT_DIR/rsa_${key_size}_${i}.key")
         duration=$(echo "$end_time - $start_time" | bc)
         echo "    Time: $duration seconds" | tee -a "$LOG_FILE"
+        echo "    Start Time: $start_time" | tee -a "$LOG_FILE"
+        echo "    End Time: $end_time seconds" | tee -a "$LOG_FILE"
+        echo "    File Size: $file_size bytes" | tee -a "$LOG_FILE"
         echo "$duration" >> "$SUMMARY_FILE"
         
         # Remove the generated key to save space
@@ -45,13 +49,13 @@ test_rsa_key_generation() {
     done
     
     # Calculate average time
-    avg_time=$(awk '{ total += $1; count++ } END { print total/count }' "$SUMMARY_FILE")
-    echo "Average time for RSA-$key_size: $avg_time seconds" | tee -a "$LOG_FILE" "$SUMMARY_FILE"
+    # avg_time=$(awk '{ total += $1; count++ } END { print total/count }' "$SUMMARY_FILE")
+    # echo "Average time for RSA-$key_size: $avg_time seconds" | tee -a "$LOG_FILE" "$SUMMARY_FILE"
     echo "-----------------------------------------------" | tee -a "$LOG_FILE" "$SUMMARY_FILE"
 }
 
 # Function to generate Dilithium keys and measure time
-test_dilithium_key_generation() {
+test_oqs_key_generation() {
     variant=$1
     
     echo "Testing $variant key generation ($NUM_TESTS iterations)..." | tee -a "$LOG_FILE"
@@ -59,12 +63,16 @@ test_dilithium_key_generation() {
     
     for i in $(seq 1 $NUM_TESTS); do
         echo "  Test #$i for $variant" | tee -a "$LOG_FILE"
-        start_time=$(date +%s.%N)
+        start_time=$(python3 -c "import time; print(time.time())")
         openssl genpkey -algorithm $variant -out "$OUTPUT_DIR/${variant}_${i}.key" \
-            -provider default -provider oqsprovider 2>/dev/null
-        end_time=$(date +%s.%N)
+            -provider oqsprovider 2>/dev/null
+        end_time=$(python3 -c "import time; print(time.time())")
+        file_size=$(stat -c %s "$OUTPUT_DIR/${variant}_${i}.key")
         duration=$(echo "$end_time - $start_time" | bc)
         echo "    Time: $duration seconds" | tee -a "$LOG_FILE"
+        echo "    Start Time: $start_time" | tee -a "$LOG_FILE"
+        echo "    End Time: $end_time seconds" | tee -a "$LOG_FILE"
+        echo "    File Size: $file_size bytes" | tee -a "$LOG_FILE"
         echo "$duration" >> "$SUMMARY_FILE"
         
         # Remove the generated key to save space
@@ -72,8 +80,8 @@ test_dilithium_key_generation() {
     done
     
     # Calculate average time
-    avg_time=$(awk '{ total += $1; count++ } END { print total/count }' "$SUMMARY_FILE")
-    echo "Average time for $variant: $avg_time seconds" | tee -a "$LOG_FILE" "$SUMMARY_FILE"
+    # avg_time=$(awk '{ total += $1; count++ } END { print total/count }' "$SUMMARY_FILE")
+    # echo "Average time for $variant: $avg_time seconds" | tee -a "$LOG_FILE" "$SUMMARY_FILE"
     echo "-----------------------------------------------" | tee -a "$LOG_FILE" "$SUMMARY_FILE"
 }
 
@@ -94,8 +102,8 @@ done
 echo "Running Dilithium key generation tests..." | tee -a "$LOG_FILE"
 for variant in "${DILITHIUM_VARIANTS[@]}"; do
     # Check if the variant is supported
-    if openssl list -public-key-algorithms -provider default -provider oqsprovider | grep -q "$variant"; then
-        test_dilithium_key_generation $variant
+    if openssl list -public-key-algorithms -provider oqsprovider | grep -q "$variant"; then
+        test_oqs_key_generation $variant
     else
         echo "Skipping $variant - not supported in this OQS build" | tee -a "$LOG_FILE" "$SUMMARY_FILE"
     fi
@@ -133,7 +141,7 @@ if [[ "$response" =~ ^[Yy]$ ]]; then
     
     # RSA key pair test
     echo "Testing RSA-2048 key pair generation..." | tee -a "$LOG_FILE" "$SUMMARY_FILE"
-    start_time=$(date +%s.%N)
+    start_time=$(date +%s%N)
     
     # Generate private key
     openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out "$OUTPUT_DIR/rsa_pair.key" 2>/dev/null
@@ -142,13 +150,13 @@ if [[ "$response" =~ ^[Yy]$ ]]; then
     openssl req -new -x509 -key "$OUTPUT_DIR/rsa_pair.key" -out "$OUTPUT_DIR/rsa_pair.crt" \
         -subj "/CN=RSA Test Certificate" -days 365 2>/dev/null
     
-    end_time=$(date +%s.%N)
+    end_time=$(date +%s%N)
     duration=$(echo "$end_time - $start_time" | bc)
     echo "RSA-2048 key pair generation time: $duration seconds" | tee -a "$LOG_FILE" "$SUMMARY_FILE"
     
     # Dilithium key pair test
     echo "Testing dilithium2 key pair generation..." | tee -a "$LOG_FILE" "$SUMMARY_FILE"
-    start_time=$(date +%s.%N)
+    start_time=$(date +%s%N)
     
     # Generate private key
     openssl genpkey -algorithm dilithium2 -out "$OUTPUT_DIR/dilithium_pair.key" \
@@ -159,7 +167,7 @@ if [[ "$response" =~ ^[Yy]$ ]]; then
         -subj "/CN=Dilithium Test Certificate" -days 365 \
         -provider default -provider oqsprovider 2>/dev/null
     
-    end_time=$(date +%s.%N)
+    end_time=$(date +%s%N)
     duration=$(echo "$end_time - $start_time" | bc)
     echo "dilithium2 key pair generation time: $duration seconds" | tee -a "$LOG_FILE" "$SUMMARY_FILE"
     

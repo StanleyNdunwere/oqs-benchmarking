@@ -1,0 +1,39 @@
+Dilithium3
+File: test_text_3KB.txt
+Dilithium signature size: 3293 bytes
+-----------------------
+File: /test_1M.bin
+Dilithium signature size: 3293 bytes
+-----------------------
+File: /test_50M.bin
+Dilithium signature size: 3293 bytes
+
+RSA 2048
+File: test_text_3KB.txt
+RSA signature size: 256 bytes
+-----------------------
+File: test_1M.bin
+RSA signature size: 256 bytes
+-----------------------
+File: test_50M.bin
+RSA signature size: 256 bytes
+
+Dilithium5
+File: test_text_3KB.txt
+Dilithium signature size: 4595 bytes
+-----------------------
+File: test_1M.bin
+Dilithium signature size: 4595 bytes
+-----------------------
+File: test_50M.bin
+Dilithium signature size: 4595 bytes
+
+RSA 4096
+File: test_text_3KB.txt
+RSA signature size: 512 bytes
+-----------------------
+File: test_1M.bin
+RSA signature size: 512 bytes
+-----------------------
+File: test_50M.bin
+RSA signature size: 512 bytes

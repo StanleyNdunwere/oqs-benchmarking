@@ -1,0 +1,42 @@
+File name: /opt/testfiles/test_text.txt
+
+real	0m0.013s
+user	0m0.010s
+sys	0m0.003s
+-----------------------
+File name: /opt/testfiles/test_text.txt
+
+real	0m0.013s
+user	0m0.007s
+sys	0m0.007s
+-----------------------
+File name: /opt/testfiles/test_text.txt
+
+real	0m0.011s
+user	0m0.006s
+sys	0m0.005s
+-----------------------
+File name: /opt/testfiles/test_text.txt
+
+real	0m0.011s
+user	0m0.004s
+sys	0m0.007s
+-----------------------
+File name: /opt/testfiles/test_text.txt
+
+real	0m0.010s
+user	0m0.005s
+sys	0m0.005s
+-----------------------
+File name: /opt/testfiles//test_1M.bin
+
+real	0m0.015s
+user	0m0.009s
+sys	0m0.005s
+-----------------------
+File name: /opt/testfiles//test_50M.bin
+
+real	0m0.107s
+user	0m0.090s
+sys	0m0.016s
+-----------------------

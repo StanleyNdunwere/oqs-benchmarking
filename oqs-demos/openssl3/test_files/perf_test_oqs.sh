@@ -35,7 +35,7 @@ fi
 # Function to generate test files of varying sizes
 generate_test_files() {
   echo "Generating test files of various sizes..."
-  for size in 1M 5M 10M 50M; do
+  for size in 1M 50M; do
     echo "Creating test file of size $size"
     dd if=/dev/urandom of="$TEST_FILES_DIR/test_$size.bin" bs=$size count=1
   done
@@ -48,6 +48,7 @@ hash_file() {
   echo "Calculating hash for $input_file..."
   
   # Measure time for hash calculation only
+  echo "File name: $input_file" >> "$HASH_TIME_LOG"
   { time openssl dgst -sha256 -provider default -provider oqsprovider "$input_file"; } 2>> "$HASH_TIME_LOG"
   
   echo "Hash calculated for $input_file. Time taken logged in $HASH_TIME_LOG"
@@ -62,6 +63,7 @@ sign_file() {
   echo "Signing $input_file using Dilithium..."
   
   # Measure time and sign the file using OQS OpenSSL
+  echo "File name: $input_file" >> "$SIGN_TIME_LOG"
   { time openssl dgst -sha256 -sign "$private_key" -out "$signature_file" \
     -provider default -provider oqsprovider "$input_file"; } 2>> "$SIGN_TIME_LOG"
   
@@ -87,6 +89,7 @@ verify_signature() {
   echo "Verifying signature for $input_file..."
   
   # Measure time and verify the signature using OQS OpenSSL
+  echo "File name: $input_file" >> "$VERIFY_TIME_LOG"
   { time openssl dgst -sha256 -verify "$public_key" -signature "$signature_file" \
     -provider default -provider oqsprovider "$input_file"; } 2>> "$VERIFY_TIME_LOG"
   
@@ -106,8 +109,8 @@ fi
 > "$SIZE_COMPARISON_LOG"
 
 # Run the original test 100 times on the standard text file
-echo "Running standard test 100 times on $TEXT_FILE"
-for i in {1..100}
+echo "Running standard test 5 times on $TEXT_FILE for small text file"
+for i in {1..5}
 do
   echo "Standard Test #$i"
   
@@ -122,7 +125,8 @@ done
 
 # Now test with multiple file sizes
 echo "Testing with various file sizes..."
-for size in 1M 5M 10M 50M; do
+hash_file "$TEXT_FILE"
+for size in 1M 50M; do
   TEST_FILE="$TEST_FILES_DIR/test_$size.bin"
   SIZE_SPECIFIC_SIGNATURE="$TEST_FILES_DIR/dilithium_signature_${size}.bin"
   
